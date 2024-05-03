@@ -11,12 +11,10 @@ class Notify extends Notification
 {
     use Queueable;
 
-    /**
-     * Create a new notification instance.
-     */
-    public function __construct()
+   public $work;
+    public function __construct($work)
     {
-        //
+      $this->work = $work;
     }
 
     /**
@@ -32,13 +30,6 @@ class Notify extends Notification
     /**
      * Get the mail representation of the notification.
      */
-    public function toMail(object $notifiable): MailMessage
-    {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
-    }
 
     /**
      * Get the array representation of the notification.
@@ -48,7 +39,7 @@ class Notify extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'address' => $this->work
         ];
     }
 }

@@ -39,5 +39,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('end/work/{work_id}', [WorkController::class, 'endWork']);
     Route::get('my/works', [WorkController::class, 'myWorks']);
     Route::get('my/orders', [WorkController::class, 'myOrders']);
+    Route::get('get/notify', [WorkController::class, 'getNotify']);
 
 });
